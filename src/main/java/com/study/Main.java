@@ -7,6 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -17,10 +18,15 @@ import java.util.Objects;
 //@EnableAutoConfiguration
 //@Configuration
 @RestController
+@RequestMapping("/api/c1/customers")
 public class Main {
     public static void main(String[] args) {
 //        System.out.println("Hello!");
         SpringApplication.run(Main.class, args);
+    }
+
+    public List<Customer> getCustomers() {
+        return List.of();
     }
 //@GetMapping("/greet")
 //    public String greet() {
