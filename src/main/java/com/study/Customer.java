@@ -7,14 +7,16 @@ import java.util.Objects;
 public class Customer {
 
     @Id
-    @SequenceGenerator(
+    @SequenceGenerator( //여기 들어가서 int allocationSize() default 50;부분을 확인, 숫자가 50을 텀으로 번호 자동생성된다는 말.
             name = "customer_id_sequence",
-            sequenceName = "customer_id_sequence"
+            sequenceName = "customer_id_sequence",
+            allocationSize = 1 //이걸 해주면 자동으로 생성되는 숫자의 텀은 1로 할 수 있음
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
             generator = "customer_id_sequence"
     )
+    //아래는 컬럼 정의
     private Integer id;
     private String name;
     private String email;
